@@ -1,0 +1,247 @@
+React його базовий елемент createElement()
+він приймає три параметри 
+createElement('div' - тобто тег, {тут клас для ситлю className: ''}, 'текст або ше один елемент')
+
+py-2 px-4 border -  стилізація кнопки методом класу
+const [count, setCount] =  useState(0) лічильник ми count використовуємо 
+як число 0 яке при дії можемо збільшувати
+
+{className: 'py-2 px-4 border', key: 1, onClick: () => setCount(count + 1)}
+onClick: () => setCount(count + 1) - записується event
+
+React className flex-col flex  items-center вирівнює горизонтально
+margin-bottom = mb-4
+py px 
+margin: 0 auto; = mx-auto 
+margin: auto 0; = my-auto
+rounded = border-radius
+bg-yellow-100 - колір
+text-center 
+bg-yellow/50 - прозорість кольору 
+fixed - зразу каже що позиція буде фіксованаю
+
+ <></> - обєднює 2 тега називається фрагмент
+
+ w-full - на всю ширину
+
+ React.FormEvent - це для Event і даді для preventDefault()
+
+ React.ReactNode так позначається елемент в якому діти будуть також функціями 
+ 
+ react вивчення
+ spa single page application - 
+ це коли клієнт запрошує 1 сторінку html js s css
+ тобто всі зміни для html робить тільки користовач
+ тобто сайт буде працювати без перезавантажень сторінки 
+ 
+
+ ReactDOM.render(<h1>Hello</h1>, document.querySelector('#app'))
+
+ ReactDOM - за допомогою нього ми можемо передавати в html 1 параметром 
+ тег 2 куди тобто в який батьківський елемент
+
+ ReactDOM.render він повертає тільки 1 батьківський тег
+ 
+ jsx i коректна установка react
+
+ // ReactDOM.render(React.createElement('input', {
+//     placeholder: 'Hello',
+//     onMouseOver: ()=> {console.log('Mouse Over')},
+//     onClick: ()=>{console.log('Clicked');}
+// }), document.querySelector('#app'))
+
+const wherePush = document.querySelector('#app')
+const asd = 62
+const htmlElement = 
+        <>
+            <input placeholder='Helloy' onClick={()=> console.log('Clicked')}/>
+            {asd === 22 && <p>GoodMorning</p>}
+        </>;
+
+ReactDOM.render(htmlElement , wherePush)
+
+кращий спосіб створення і новіший це 
+
+const element = ReactDOMClient.createRoot(тут тільки той елемент куди ми хочемо помістити весь контент)
+element.render()
+
+в більшості в react прийнято створювати class
+class Header extends React.Component {
+    render(){
+        return (
+            <p>HEllo</p>
+        )
+    }
+}
+Примітка: всюди в класах ми використовуємо this
+щоб передати  параметер
+
+export default App так export class
+
+
+Button.defaultProps = {
+    text: 'Button'
+}
+Button - функція
+defaultProps - тобто дефолтний параметер якшо ми не задамо то цей задасться 
+за замовчуванням
+
+   useEffect(() => { виконується тоді коли виконується useState
+        document.title = `${click}`
+    })
+    document.title - заголовок сторінки
+React його базовий елемент createElement()
+він приймає три параметри 
+createElement('div' - тобто тег, {тут клас для ситлю className: ''}, 'текст або ше один елемент')
+
+py-2 px-4 border -  стилізація кнопки методом класу
+const [count, setCount] =  useState(0) лічильник ми count використовуємо 
+як число 0 яке при дії можемо збільшувати
+
+{className: 'py-2 px-4 border', key: 1, onClick: () => setCount(count + 1)}
+onClick: () => setCount(count + 1) - записується event
+
+React className flex-col flex  items-center вирівнює горизонтально
+margin-bottom = mb-4
+py px 
+margin: 0 auto; = mx-auto 
+margin: auto 0; = my-auto
+rounded = border-radius
+bg-yellow-100 - колір
+text-center 
+bg-yellow/50 - прозорість кольору 
+fixed - зразу каже що позиція буде фіксованаю
+
+ <></> - обєднює 2 тега називається фрагмент
+
+ w-full - на всю ширину
+
+ React.FormEvent - це для Event і даді для preventDefault()
+
+ React.ReactNode так позначається елемент в якому діти будуть також функціями 
+ 
+ react вивчення
+ spa single page application - 
+ це коли клієнт запрошує 1 сторінку html js s css
+ тобто всі зміни для html робить тільки користовач
+ тобто сайт буде працювати без перезавантажень сторінки 
+ 
+
+ ReactDOM.render(<h1>Hello</h1>, document.querySelector('#app'))
+
+ ReactDOM - за допомогою нього ми можемо передавати в html 1 параметром 
+ тег 2 куди тобто в який батьківський елемент
+
+ ReactDOM.render він повертає тільки 1 батьківський тег
+ 
+ jsx i коректна установка react
+
+ // ReactDOM.render(React.createElement('input', {
+//     placeholder: 'Hello',
+//     onMouseOver: ()=> {console.log('Mouse Over')},
+//     onClick: ()=>{console.log('Clicked');}
+// }), document.querySelector('#app'))
+
+const wherePush = document.querySelector('#app')
+const asd = 62
+const htmlElement = 
+        <>
+            <input placeholder='Helloy' onClick={()=> console.log('Clicked')}/>
+            {asd === 22 && <p>GoodMorning</p>}
+        </>;
+
+ReactDOM.render(htmlElement , wherePush)
+Примітка: 
+Можна використовувати стилі для окремих елементів
+відокремлювати їх в окремий файл і додавати стиль приклад:
+
+import React from "react";
+import classBtn from './button.module.css' ми створили цей стиль
+function Button(props) {
+    return (
+        <button className={classBtn.MyButton}> тут його додали
+            {props.children}
+        </button>
+    )
+}
+export default Button
+
+{props.children} - це коли в нас є передаваєма функція і ми її використовуємо як тег
+а це його дочірній елемент
+useRef - це ми достукуємося до елемента напряму
+синтаксис
+біля hooks ми створюємо
+const getValueWithRef = useRef()
+getValueWithRef.current.value - це все що ми будемо вводити в input
+в DomElement ми прописуємо 
+<input placeholder='Hello' ref={getValueWithRef} />
+
+тобто для контрольованих елементів ми використовуємо useState
+а для не useRef
+
+hook useMemo 
+він приймає 2 параметера це функцію колбек і
+масив з тими значеннями які ми буде видозмінювати 
+тобто ці зміни будуть стосувати тільки тих значеннь які в масиві також це хороша оптимізація для проекту
+синтаксис:
+ const valueStoreReturn = useMemo(()=> {
+    return a * b
+ }, [a, b])
+
+ особисті хуки мусять містити системні
+
+кожен компонент має 3 життєві правила
+1. монтування - стврення елементу 
+2. оновлення - це перерендер тобто за допомогою хуків
+3. розмонтування - видалення елемента
+
+useEffect працює тоді коли змінюється елемент в масиві
+в наших Api, тобто ці силки там де ми робимо GET чи POST можна встановлювати параметри 
+?_limit=10&_page=3 
+починати исати параметри ? їхні назви починаються з _ 
+обєднювати їх & 
+також в axios є вбудований метод params
+
+зараз переключення між сторінками 
+spa
+react router dom - install
+syntax
+<BrowserRouter>
+    <Link to='/aa'></Link> - такий синтаксис запобіжить перезапуску сайту
+    <Routes>
+        <Route link="/aa" element={} />
+    </Routes>
+</BrowserRouter>
+
+redirect це виконається тоді коли ми введемо незрозумілий шлях
+його можна замінити 
+
+<Route path="*" element={<Navigate to="/about" replace />} />
+
+а Switch = Routes
+
+useHistory = useNavigate
+
+тобто при клвку на кнопку нас перекине по цьому лінку
+
+useParams передає додаткові параметри з ссилки тобто 
+
+useContext - дозволя передавати context всюди 
+синтаксис:
+спочатку ми мусимо створювати
+
+import {createContext} from 'react';
+
+export const AuthContext = createContext(null)
+
+потім там де наш весь контент потрібно огорнути в 
+const {auth, setAuth} = useState(false)
+<AuthContext.Provider value={{
+    auth,
+    setAuth
+}}>
+<AuthContext.Provider/>
+тепер ми можемо достукуватися до цього елемента всьди але потрібно використовувати цей синтаксис:
+const {auth, setAuth} = useContext(AuthContext)
+
+створення безкінечної ленти

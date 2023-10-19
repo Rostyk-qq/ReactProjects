@@ -1,0 +1,70 @@
+якшо ми хочемо типізувати React Element
+interface PageParams {
+    path: string,
+    exact: boolean,
+    element: ReactNode нам потрібно використовувати такий синтаксис
+}
+
+antd
+<Layout.Header>
+      <Row justify="end" align='middle' > Row - використовується як flex контейнер
+            <Menu theme='dark' mode='horizontal' selectable={false}> mode='horizontal' вирівнює елементи в боксі горизонтально selectable - робить клікабельною
+                  <Menu.Item color='#fff'>Smth...</Menu.Item> child menu
+            </Menu>
+      </Row>
+</Layout.Header>
+
+Позбутися ...
+import Item = List.Item;
+
+import React from 'react';
+import {Layout, List, Menu, Row} from "antd";
+import Item = List.Item;
+
+const Navbar = () => {
+    return (
+        <Layout.Header>
+            <Row justify="end">
+                    <Menu theme="dark" mode="horizontal" selectable={false}>
+                        <Item key={1} style={{ color: '#fff'}}>
+                            Login
+                        </Item>
+                    </Menu>
+            </Row>
+        </Layout.Header>
+    );
+};
+
+export default Navbar;
+
+
+import {AppDispatch} from "../../reduxElements/store";
+import {useDispatch} from "react-redux";
+import {bindActionCreators} from "redux";
+
+
+export const useActions = () => {
+    const dispatch = useDispatch<AppDispatch>()
+    return bindActionCreators(actions, dispatch)
+}
+
+отримання всіх creators так як через useSelector()
+
+шоб запобігти повторенню axios
+можна використати
+export default class UserService {
+     static async getUsers(): Promise<AxiosResponse<IUser[]>> {
+        return axios.get<IUser[]>('./users.json')
+    }
+}
+
+useEffect це як tagTypes
+
+[] тобто при рендеру на сторінку дані або зміни
+будуть відображатися зразу
+
+якшо ми використовуємо Celendar
+то для заповнення його віддвлень
+нам потрібно використовути dateCellRender={функція яка приймає  весь час тобто value тобто це масив всіx }
+
+ця функція return jsx тобто те що ми будемо поміщати в відділи
